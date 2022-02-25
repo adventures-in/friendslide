@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
+import 'package:friendslide/puzzle/puzzle.dart';
 
 import 'firebase_options.dart';
 
@@ -40,7 +41,7 @@ class AuthGate extends StatelessWidget {
         }
 
         // Render your application if authenticated
-        return const Material(child: Text('Hello'));
+        return const Scaffold(body: Puzzle());
       },
     );
   }
