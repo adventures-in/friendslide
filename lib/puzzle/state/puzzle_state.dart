@@ -32,8 +32,10 @@ class PuzzleState {
   int get emptyY => _emptyY;
   IMap<String, PuzzlePieceState> get pieces => _pieces;
 
-  PuzzleState copyWithPiece(String id, PuzzlePieceState piece) {
-    return PuzzleState._(_emptyX, emptyY, _pieces.update(id, (value) => piece));
+  PuzzleState updatePiece(String id, PuzzlePieceState piece,
+      {int? emptyX, int? emptyY}) {
+    return PuzzleState._(emptyX ?? _emptyX, emptyY ?? _emptyY,
+        _pieces.update(id, (value) => piece));
   }
 
   /// We don't allow a [List<PuzzlePieceState>] to be passed in to copyWith

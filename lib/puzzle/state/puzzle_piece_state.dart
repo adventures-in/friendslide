@@ -1,3 +1,5 @@
+import '../../utils/vec.dart';
+
 class PuzzlePieceState {
   const PuzzlePieceState(int x, int y, String id)
       : _x = x,
@@ -11,6 +13,7 @@ class PuzzlePieceState {
   int get x => _x;
   int get y => _y;
   String get id => _id;
+  Vec get vec => Vec(_x, _y);
 
   PuzzlePieceState copyWith({int? x, int? y, String? id}) =>
       PuzzlePieceState(x ?? _x, y ?? _y, id ?? _id);
