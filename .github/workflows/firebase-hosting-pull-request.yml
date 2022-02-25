@@ -7,9 +7,11 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
-    container: enspyrco/ci-tools:stable
     steps:
       - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
       - run: flutter build web
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
