@@ -45,6 +45,3 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Firebase config data - technically public info but getting yelled at by a Bot is annoying
-lib/firebase_options.dart
-.firebaserc
