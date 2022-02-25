@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:friendslide/app/app_state.dart';
+import 'package:friendslide/puzzle/state/puzzle_state.dart';
 import 'package:friendslide/puzzle/widgets/puzzle_piece.dart';
 
 class Puzzle extends StatefulWidget {
@@ -15,16 +16,13 @@ class _PuzzleState extends State<Puzzle> {
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, AppState>(
+    return StoreConnector<AppState, PuzzleState>(
       distinct: true,
-      converter: (store) => store.state,
+      converter: (store) => store.state.puzzle,
       builder: (context, puzzle) {
         return Stack(
             children: puzzle.pieces
-                .map((state) => PuzzlePiece(
-                    state: state,
-                    selected: selected,
-                    callback: () => setState(() => selected = !selected)))
+                .map((state) => PuzzlePiece(state: state))
                 .toList());
       },
     );

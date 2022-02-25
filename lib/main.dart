@@ -50,7 +50,7 @@ class AuthGate extends StatelessWidget {
           body: StoreProvider(
             store: Store<AppState>(
                 <Reducer<AppState>>[MovePuzzlePieceReducer()].combine(),
-                initialState: const AppState.init()),
+                initialState: AppState.init()),
             child: const Puzzle(),
           ),
         );
