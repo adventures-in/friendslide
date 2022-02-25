@@ -1,17 +1,17 @@
 class PuzzlePieceState {
-  const PuzzlePieceState(int x, int y, {bool selected = false})
+  const PuzzlePieceState(int x, int y, String id)
       : _x = x,
         _y = y,
-        _selected = selected;
+        _id = id;
 
   final int _x;
   final int _y;
-  final bool _selected;
+  final String _id;
 
   int get x => _x;
   int get y => _y;
-  bool get selected => _selected;
+  String get id => _id;
 
-  PuzzlePieceState copyWith({int? x, int? y, bool? selected}) =>
-      PuzzlePieceState(x ?? _x, y ?? _y, selected: selected ?? _selected);
+  PuzzlePieceState copyWith({int? x, int? y, String? id}) =>
+      PuzzlePieceState(x ?? _x, y ?? _y, id ?? _id);
 }

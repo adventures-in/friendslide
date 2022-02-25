@@ -21,7 +21,7 @@ class _PuzzleState extends State<Puzzle> {
       converter: (store) => store.state.puzzle,
       builder: (context, puzzle) {
         return Stack(
-            children: puzzle.pieces
+            children: puzzle.pieces.values
                 .map((state) => PuzzlePiece(state: state))
                 .toList());
       },

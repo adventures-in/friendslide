@@ -12,13 +12,12 @@ class PuzzlePiece extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedPositioned(
-        top: state.selected ? state.x * 100.0 : (state.x + 1) * 100.0,
-        left: state.selected ? state.y * 0.0 : (state.y + 1) * 100.0,
+        top: state.x * 100.0,
+        left: state.y * 100.0,
         duration: const Duration(seconds: 1),
         curve: Curves.fastOutSlowIn,
         child: GestureDetector(
-            onTap: () => context
-                .dispatch(MovePuzzlePieceAction(atX: state.x, atY: state.y)),
+            onTap: () => context.dispatch(MovePuzzlePieceAction(id: state.id)),
             child: Container(
               width: 100,
               height: 100,

@@ -2,7 +2,7 @@ import '../puzzle/state/puzzle_state.dart';
 
 /// Immutable state for the app
 class AppState {
-  AppState.init() : _puzzle = PuzzleState.init();
+  const AppState.init() : _puzzle = const PuzzleState.init();
 
   const AppState._(PuzzleState puzzle) : _puzzle = puzzle;
 
