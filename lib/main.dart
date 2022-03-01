@@ -3,12 +3,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutterfire_ui/auth.dart';
+import 'package:friendslide/home/home_screen.dart';
+import 'package:friendslide/utils/navigation/navigate_reducer.dart';
 import 'package:redux/redux.dart';
 
 import 'app/app_state.dart';
 import 'firebase_options.dart';
 import 'puzzle/reducers/move_puzzle_piece_reducer.dart';
-import 'puzzle/widgets/puzzle.dart';
 import 'utils/reducers_list_extension.dart';
 
 Future<void> main() async {
@@ -49,9 +50,13 @@ class AuthGate extends StatelessWidget {
         return Scaffold(
           body: StoreProvider(
             store: Store<AppState>(
-                <Reducer<AppState>>[MovePuzzlePieceReducer()].combine(),
-                initialState: AppState.init()),
-            child: const Puzzle(),
+              <Reducer<AppState>>[
+                MovePuzzlePieceReducer(),
+                NavigateReducer(),
+              ].combine(),
+              initialState: const AppState.init(),
+            ),
+            child: const HomeScreen(),
           ),
         );
       },

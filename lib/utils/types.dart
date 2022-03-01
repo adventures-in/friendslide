@@ -1,1 +1,3 @@
-abstract class ReduxAction {}
+abstract class ReduxAction {
+  const ReduxAction();
+}
